@@ -1,0 +1,18 @@
+{
+  "name": "ideas-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/amandapascon/ideas-api.git",
+  "author": "amandapascon <amanda.pascon@estudante.ufscar.br>",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon index.js --ingore tests"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "mongoose": "^6.2.10",
+    "nodemon": "^2.0.15",
+    "require-dir": "^1.2.0"
+  }
+}
