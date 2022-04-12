@@ -14,4 +14,14 @@ router.get(
     UserController.getUser
 )
 
+router.post(
+    '/register',
+    UserController.createUser
+)
+
+router.post(
+    '/login',
+    UserController.createSession 
+)
+
 module.exports = router
