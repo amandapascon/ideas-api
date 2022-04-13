@@ -21,7 +21,7 @@ router.post(
 
 router.post(
     '/login',
-    UserController.createSession 
+    UserController.createSession
 )
 
 module.exports = router

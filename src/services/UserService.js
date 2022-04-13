@@ -1,5 +1,6 @@
 const UserRepository = require('../repositories/UserRepository')
 const EncryptHelper = require('../helpers/EncryptHelper')
+const TokenHelper = require('../helpers/TokenHelper')
 
 module.exports = {
 
@@ -26,11 +27,20 @@ module.exports = {
     },
 
     async createSession(usuario, senha) {
+        const token_secret='a55de6fb2d689937c7a9808d91ba5fb7e138a8976fbb47aca84618b378143785'
+        const expiresIn = '99999 minutes'
+
         const findUser = await UserRepository.findUser(usuario)
         if(!findUser) {
             console.log("Usuário não encontrado")
             return
         }
-        // ToDo 
+        await EncryptHelper.compare(senha, findUser.senha)
+        const token = TokenHelper.signToken(
+            { id_user: findUser._id, nome_user: findUser.nome },
+            token_secret,
+            { expiresIn }
+        )
+        return token
     }
 }

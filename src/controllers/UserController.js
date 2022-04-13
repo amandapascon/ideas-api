@@ -16,7 +16,7 @@ module.exports = {
 
     async createSession(request, response) {
         const { usuario, senha } = request.body
-        const token = await UserService.createSession(usuario, senha) 
+        const token = await UserService.createSession(usuario, senha)
         return response.json(sucess({ token }, "Usuário Logado"))
     }
 }
