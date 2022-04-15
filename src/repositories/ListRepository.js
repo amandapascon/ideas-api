@@ -1,11 +1,12 @@
 const mongoose = require('mongoose')
-const Lists = mongoose.model('Lists')
+const User = mongoose.model('User')
 
 module.exports = {
 
-    async getLists() {
-        const lists = await Lists.find()
-        return lists
+    async getLists(id_user) {
+        const user = await User.findById({_id:id_user})
+        console.log(user.lists);
+        return user.lists
     }
 
 }

@@ -3,9 +3,11 @@ const router = express.Router()
 
 const ListController = require('../controllers/ListController')
 const UserController = require('../controllers/UserController')
+const AuthMiddleware = require('../middlewares/AuthMiddleware')
 
 router.get(
     '/lists',
+    AuthMiddleware.verifyToken,
     ListController.getLists
 )
 

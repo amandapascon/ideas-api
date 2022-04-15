@@ -18,7 +18,7 @@ module.exports = {
         const senhaCripto = await EncryptHelper.encrypt(senha)
         const user = await UserRepository.createUser(usuario, nome, senhaCripto)
         if (user) {
-            return user
+            return user._id
         }
         else {
             console.log('Erro')
